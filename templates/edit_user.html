@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改学生信息</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ <form action="/edit_user/edit_message/" method="POST" class="form-horizontal"> {% csrf_token %}
+<div style="padding: 100px 500px 100px;">
+    {% for ob in obj %}
+	<form class="bs-example bs-example-form" role="form">
+		<div class="input-group input-group-lg">
+			<span class="input-group-addon">学号</span>
+			<input type="text" class="form-control" readonly="readonly" name = "edit_no" value="{{ ob.no }}">
+		</div><br>
+		<div class="input-group input-group-lg">
+			<span class="input-group-addon">姓名</span>
+			<input type="text" class="form-control"  readonly="readonly" name = "edit_name" value="{{ ob.name }}">
+		</div><br>
+		<div class="input-group input-group-lg">
+			<span class="input-group-addon">年龄</span>
+			<input type="text" class="form-control" readonly="readonly" name = "edit_age" value="{{ ob.age }}">
+		</div><br>
+        <div class="input-group input-group-lg">
+			<span class="input-group-addon">语文</span>
+			<input type="text" class="form-control"  name = "edit_chinese">
+		</div><br>
+         <div class="input-group input-group-lg">
+			<span class="input-group-addon">数学</span>
+			<input type="text" class="form-control"  name = "edit_math" >
+		</div><br>
+         <div class="input-group input-group-lg">
+			<span class="input-group-addon">英语</span>
+			<input type="text" class="form-control"  name = "edit_english">
+		</div><br>
+         <div class="input-group input-group-lg">
+			<span class="input-group-addon">体育</span>
+			<input type="text" class="form-control"  name = "edit_sport">
+		</div><br>
+
+<div class="btn-group">
+    <button type="submit" class="btn btn-default" style="margin-left: 293px">确认</button>
+
+</div>
+	</form>
+    {% endfor %}
+</div>
+ <div class="btn-group">
+    <a class="btn btn-default" href="/index/">返回后台</a>
+</div>
+ </form>
+</body>
+</html>
